@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * 
+ * @return array
+ */
+function debug_menu() {
+    
+    $items = array();
+
+    $items['debug/%'] = array(
+        'title' => 'Debug Module: Error',
+        'page callback' => 'debug_main',
+        'page arguments' => array(1),
+        'file' => 'debug.inc',
+        'access arguments' => array(TRUE),
+        'type' => MENU_NORMAL_ITEM
+    );
+ 
+    return $items;
+}
+   
+
+function debug_node_info(){
+    return array(
+        'debuger' => array(
+            'name' => t('Debuger'),
+            'base' => 'debuger', 
+            'description' => t('A debuggable node.'), 
+            'help' => t('Adding to the debugging world.'),  
+            'has_label' => TRUE,          
+            'title_label' => t('Testing Focus')          
+        )        
+    );
+}
+
+function debug_character_sheet_form($node, $form_state){
+    return node_content_form($node, $form_state);
+}
+
+function debug_campaing_setting_form($node, $form_state){
+    return node_content_form($node, $form_state);
+}
+
+    
+
+
+
